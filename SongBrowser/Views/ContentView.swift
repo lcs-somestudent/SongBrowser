@@ -68,8 +68,12 @@ struct ContentView: View {
     // MARK: Functions
     func fetchSongResults() {
         
-        // Set the address of the JSON endpoint
-        let url = URL(string: "https://itunes.apple.com/search?term=taylor+swift&entity=song")!
+        // Sanitize the search input
+        // Converts something like "TaYLoR SWiFt" to "taylor+swift"
+        let input = searchText.lowercased().replacingOccurrences(of: " ", with: "+")
+        
+        // Set the address of the JSON endpoint                     TaYLoR SWiFt
+        let url = URL(string: "https://itunes.apple.com/search?term=\(input)&entity=song")!
 
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
