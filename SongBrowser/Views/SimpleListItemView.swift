@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct SimpleListItemView: View {
+    
+    var title: String
+    var caption: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack(alignment: .leading) {
+            
+            Text(title)
+            
+            Text(caption)
+                .font(.caption)
+            
+        }
+        
     }
 }
 
 struct SimpleListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleListItemView()
+        SimpleListItemView(title: exampleSong.trackName,
+                           caption: exampleSong.artistName)
     }
 }
+
+

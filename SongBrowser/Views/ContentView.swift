@@ -46,14 +46,8 @@ struct ContentView: View {
                 // to uniquely identify each song
                 List(songs, id: \.trackId) { currentSong in
                     
-                    VStack(alignment: .leading) {
-                        
-                        Text(currentSong.trackName)
-                        
-                        Text(currentSong.artistName)
-                            .font(.caption)
-                        
-                    }
+                    SimpleListItemView(title: currentSong.trackName,
+                                       caption: currentSong.artistName)
                     
                 }
 
